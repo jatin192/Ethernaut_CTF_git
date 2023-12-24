@@ -1,0 +1,11 @@
+$ await contract.func_1(“input”)
+$ contract.address
+$ contract 
+	
+Payable Function
+$ await contract.func_1().send({
+      from: window.ethereum.selectedAddress,
+      value: weiAmount,
+      gas: 500000 // Adjust the gas limit as needed});
+
+Q Normal SC —----connect—----console Browser   -> use web3 cmd	
