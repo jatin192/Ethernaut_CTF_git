@@ -39,7 +39,7 @@ Key Point:
 1.         contract A                  ->        contract B (have receive function)
    (use .call insted of transfer)
 
-2. selfdestruct function  ->  Transfer all the fund from one smartcontract to another without calling refceive function
+2. selfdestruct function  ->  Transfer all the fund from one smartcontract to another smartcontract or EOA without calling refceive function
 
 
 
