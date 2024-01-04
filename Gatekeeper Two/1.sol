@@ -37,6 +37,8 @@ contract GatekeeperTwo {
 
 // a ^ b == c
 // a ^ c == b
+
+// keccak256 always return a 32-byte (64-character hexadecimal) string
 contract Hack
 {
     

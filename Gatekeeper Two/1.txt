@@ -16,7 +16,8 @@ xor(^)
 1 ^ 1  = 0
 0 ^ 1  = 1
 
-
+************* byte32 = keccak256(abi.encodePacked(msg.sender));
+keccak256 always return a 32-byte (64-character hexadecimal) string
 
 The assembly keyword is your gateway to the raw power of the EVM. It allows you to write low-level code directly using the EVM's instruction set, called opcodes.
 
