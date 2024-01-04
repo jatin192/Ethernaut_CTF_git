@@ -23,3 +23,4 @@ Hexadecimal 0x  ff  ee  ab  cd  ef  09  10  15
                                              
 
                                 
+Q. Can we use console.log() in .sol file in Hardhat
