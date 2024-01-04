@@ -44,6 +44,7 @@ contract Hack
     {
         GatekeeperTwo j;
         j = GatekeeperTwo(i);
+        //****************************************************** use this not msg.sender 
         uint64 _gateKey = ( uint64(bytes8(keccak256(abi.encodePacked(this))))  ) ^ ( type(uint64).max);
         j.enter(bytes8(_gateKey));
     }
