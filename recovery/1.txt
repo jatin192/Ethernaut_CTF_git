@@ -1,0 +1,58 @@
+Q1. How to calculate/compute smart contract address ? 
+Q2. "new" keyword in Solidity?
+
+
+
+
+
+
+
+
+
+1.
+smart contract address = last 20 bytes(RLP encoded (tx.origin,tx.nonce) )
+
+
+    ( 0xd6 ,  0x94 ,    sender_address   ,     0x01 )
+    _____________                           ______   
+    identify that                           nounce
+    this is an
+        address
+
+
+encoding 0xd6 , 0x94  identifies that this is an address
+
+RLP = Recursive Length Prefix
+         -> Efficient data serialization: 
+                -> It encodes data structures (strings, lists, nested items) into a compact and standardized format. 
+                -> This facilitates efficient communication and synchronization between nodes on the network.
+
+
+
+
+
+2. 
+
+new == new instance with uinique & different address
+
+deploy contract A -> call func_1() -> automatically internal call to  deploy instance of contract B 
+
+contract A
+{
+    function func_1() public pure returns(B)
+    {
+        B i = new B(1,2);
+        return i;
+    }
+}
+contract B
+{
+    constructor(uint a,uint b) {}
+}
+
+
+_______________________________________________________________________________________________________________________________________________________
+
+Resources : 
+https://ethereum.stackexchange.com/questions/760/how-is-the-address-of-an-ethereum-contract-computed 
+https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp
