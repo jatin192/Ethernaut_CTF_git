@@ -3,8 +3,7 @@ const { ethers } = require('ethers');
 
 const provider = new ethers.providers.JsonRpcProvider('https://polygon-mumbai.infura.io/v3/ffd685538dee4ee3bca98e5b475fb524');
 
-const address = '0x67E514b158f27A6905e8B57f17bC31f11129c40C'; // Replace with the contract address
-
+const address = '0x67E514b158f27A6905e8B57f17bC31f11129c40C';// contract Privacy 2nd wala 
 let Print_1st_10_slots = async()=>
 {
     for (let slot = 0; slot < 10; slot++)

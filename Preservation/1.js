@@ -2,7 +2,7 @@ const { ethers } = require('ethers');
 // Replace with your preferred provider URL
 const provider = new ethers.providers.JsonRpcProvider('https://polygon-mumbai.infura.io/v3/ffd685538dee4ee3bca98e5b475fb524');
 
-const address = '0x7f036897e8C8413c3de4717B24366d023e6Db310'; // Replace with the contract address
+const address = '0x7f036897e8C8413c3de4717B24366d023e6Db310'; // contract C
 // const slot = 1; // Replace with the storage slot to query
 
 
