@@ -1,3 +1,93 @@
+1.  length of address
+        Ethereum Account  vs  smart contract  vs  Transaction
+2.  can delegate call override/update the contract storage ?
+3.  how to convert address -> uint
+4.  address vs bytes   (in Solidity)
+5.  we have to state variable of different datatype of same value and same length. Is hash present in contract storage is different or same ?
+6.  why a & c have different value But still don't worry   ^_^
+    
+        bytes30 public a; // 0x8d...4b00000000000000000000
+        uint240 public b; // 0x000000000000000000008d...4b
+        bytes30 public c;
+
+        a= bytes30(bytes20(0x8DAB96e9241b68A488948c1421e4776D333b8d4B));   
+        b= uint240(uint160(0x8DAB96e9241b68A488948c1421e4776D333b8d4B));
+        c= bytes30(b);
+        
+
+
+
+
+
+
+
+
+
+
+1.
+Length = Ethereum Account  =  smart contract = 40  Hexadecimal  (excluding 0x)
+                                    
+                                    0x      8DAB96e9241b68A488948c1421e4776D333b8d4B
+                                    __      ________________________________________
+                                    2                     40
+
+Length = Transaction = 64 Hexadecimal (excluding 0x)
+
+                                    0x      df2f8d5b64a81e1fd5885233204e48464a85a782a6b089679650ca731f4d1104
+                                    __      _______________________________________________________________
+                                    2                     64
+
+2.
+yes
 delegate call 
 -> importing (code) function call and variable that use in that function  at runtime into this contract 
 -> it behaves as if it's being executed directly over here so it carries forward the storage
+    contract A 
+    {
+        address x;
+        uint y;
+        
+        bytes4  i = bytes4(keccak256("func_1(address,uint256)"));
+        delegatecall(abi.encodePacked(i,,2));
+    }
+    contract B 
+    {
+        uint e;
+        address f;
+        func_1()
+    }
+
+
+3.
+    when you're converting one datatype into another make sure that bits/bytes/Hexadecimal storage length must be same 
+    No need to worry when you convert in same data types like uint8 -> uint256 ->uint160
+    like
+
+    address -> uint256
+   
+    Wrong   uint256(address(0xabc......40th hexadecimal))
+    Right   unt256(uint160(address(0xabc......40th hexadecimal))) 
+
+4.
+Purpose:
+
+address             --->    is specifically designed to store Ethereum account addresses, which are 20 bytes long.
+bytes8,...,bytes32  --->    is a general-purpose fixed-size byte array that can store any 8->32 bytes respectively.
+
+ Right   address(0x8DAB96e9241b68A488948c1421e4776D333b8d4B);  
+ Right   bytes20(0x8DAB96e9241b68A488948c1421e4776D333b8d4B);
+ Wrong   address(0xdf2f8d5b64a81e1fd5885233204e48464a85a782a6b089679650ca731f4d1104);
+ Right   bytes32(0xdf2f8d5b64a81e1fd5885233204e48464a85a782a6b089679650ca731f4d1104);
+
+
+6.
+a stores the bytes 0x8dab...0000 as-is, including the padding.
+c stores the bytes 0x0000...8dab to represent the integer value correctly in big-endian format.
+
+    contract storage & slots
+    a->[0]0x00008dab96e9241b68a488948c1421e4776d333b8d4b00000000000000000000
+    b->[1]0x0000000000000000000000008dab96e9241b68a488948c1421e4776d333b8d4b
+
+
+Suggestion 
+Assumption length of address/bytes always after excluding 0x      until the .length function not used like in paddint using javaScript
