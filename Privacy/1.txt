@@ -7,6 +7,7 @@
 3.  can reading and writing to such slots without the need for inline assembly? But wait when we call any function that change Global variable that also change the Storage slots  data
 
 
+
 1. 
         bool a =true;        
         bool b = true;
