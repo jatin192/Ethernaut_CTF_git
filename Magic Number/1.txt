@@ -1,0 +1,27 @@
+1. How to convert Hexadecimal to Number ?
+2. write smart contract using only opcodes ?
+3. I have Runtime bytcode can i know how many opcode used ? 
+
+
+
+1. 
+Convert hexadecimal number 3F5 to decimal:
+
+5 is in the 16^0 place (5 * 1 = 5)
+F is in the 16^1 place (15 * 16 = 240)
+3 is in the 16^2 place (3 * 256 = 768)
+5 + 240 + 768 = 1013
+
+
+2.
+check 2.sol file in Magic Number
+
+3.
+https://www.evm.codes/playground?fork=shanghai
+
+
+Resources
+
+https://www.evm.codes/?fork=shanghai
+
+EVM playground : https://www.evm.codes/playground?fork=shanghai
