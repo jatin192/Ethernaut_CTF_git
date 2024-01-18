@@ -20,10 +20,6 @@
 
 
 
-
-
-
-
 1.
 Length = Ethereum Account  =  smart contract = 40  Hexadecimal  (excluding 0x)
                                     
