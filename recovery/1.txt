@@ -8,7 +8,6 @@ Q2. "new" keyword in Solidity?
 
 
 
-
 1.
 smart contract address = last 20 bytes(RLP encoded (tx.origin,tx.nonce) )
 
