@@ -8,7 +8,8 @@ contract AlienCodex is Ownable {
   bool public contact;
   bytes32[] public codex;
 
-  modifier contacted() {
+  modifier contacted() 
+  {
     assert(contact);
     _;
   }
