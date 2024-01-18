@@ -6,6 +6,7 @@ Notes
 2.  Constructor cannot be defined in interfaces.
     Functions in interfaces cannot have modifiers.
 
+
 Resources
 https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts
 https://github.com/ethereum -> search erc
