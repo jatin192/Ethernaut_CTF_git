@@ -1,0 +1,31 @@
+1. static vs dynamic variable
+
+2.  fun_1(calldata bytes i){}
+    valid input ??
+
+    fun_1(bytes memory i){ }
+    valid input ??
+
+    fun_1(bytes i){ }
+    valid input ??
+
+3  can we pass calldata in fallback since fallback is use for Low level interactions 
+
+
+1.
+
+static variable  - Those variable whose size is determined during the compiler time  
+f(uint256 i)
+
+dynamic variable - Those variable whose size can't  determined during the compiler time & only know when we give input
+f(bytes memory i)
+
+2.
+    calldata
+    bytes8,16, ,.. any -> it is dynamic data input
+    bytes32 (only) 
+
+3.
+    yes
+    you can input calldata in fallback Function  -> calldata in input -> fallback external(){ } -> may call any function 
+    that why fallback is very risky
