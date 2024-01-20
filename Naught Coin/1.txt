@@ -6,6 +6,9 @@ Notes
 2.  Constructor cannot be defined in interfaces.
     Functions in interfaces cannot have modifiers.
 
+3.  account1 -> approve account2 -> check allowance  
+    change to account 2-> TransferFrom() 
+    you can't call TransferFrom from account1  
 
 Resources
 https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts
