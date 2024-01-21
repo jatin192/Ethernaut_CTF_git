@@ -12,8 +12,9 @@
 3  can we pass calldata in fallback since fallback is use for Low level interactions 
 
 
-1.
 
+
+1.
 static variable  - Those variable whose size is determined during the compiler time  
 f(uint256 i)
 
