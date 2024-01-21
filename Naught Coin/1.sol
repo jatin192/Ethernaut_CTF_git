@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 // account1 -> approve account2 -> check allowance  
 // change to account 2-> TransferFrom() 
-// you can't call TransferFrom from account1
+// you can't call TransferFrom from account1  
 
 
  interface NaughtCoin 
