@@ -10,3 +10,4 @@ This how the Ethernaut deployed the Dex contract & call these func
 
 Ethernaut Challenge ready         
 ____________________________________________________________________________________________________________________
+type(uint).max
