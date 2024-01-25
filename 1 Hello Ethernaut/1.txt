@@ -5,15 +5,23 @@
 
 
 1.
-new ethers.providers.JsonRpcProvider(network)      vs       new ethers.Wallet(PRIVATE_KEY, provider);   
+
+let provider = new ethers.providers.JsonRpcProvider(network)                        
+let signer = new ethers.Wallet(PRIVATE_KEY, provider); 
+                      ↓                                               vs                                    ↓
+let i = new ethers.Contract(Contract_address,ABI,signer);                              let i = new ethers.Contract(Contract_address,ABI,provider);
+
+
+
 
 provider
         ->  is primarily responsible for querying data from the Ethereum network, 
         ->  read from blockchain
-        
+
 signer    
         ->  has the additional capability to sign transactions and interact with the Ethereum network in a more active manner
         ->  write on blockchain
+
 
 
 
