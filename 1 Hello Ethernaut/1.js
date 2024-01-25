@@ -6,10 +6,10 @@ let network = "https://polygon-mumbai.g.alchemy.com/v2/BigcFnXEKcriMiJUtLFLBAk_T
 let Contract_address = "0xfB8Dd40b453ed945cB60E1C6655f16E045a64bf6";
 
 
-let provider = new ethers.providers.JsonRpcProvider(network);
-let wallet = new ethers.Wallet(PRIVATE_KEY, provider);
+let provider = new ethers.providers.JsonRpcProvider(network);      // read from blockchain
+let signer = new ethers.Wallet(PRIVATE_KEY, provider);            //  write on blockchain
 
-let i = new ethers.Contract(Contract_address,ABI,wallet); //contract_instance
+let i = new ethers.Contract(Contract_address,ABI,signer);       // contract_instance
 
 let a = async()=>
 {
