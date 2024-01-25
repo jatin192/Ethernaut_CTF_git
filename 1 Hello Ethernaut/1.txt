@@ -1,0 +1,6 @@
+$ await contract.password();
+$ await contract.authenticate("ethernaut0");
+___________________________________________________________________________________________________________________
+
+$ contract.address
+$ contract 	
