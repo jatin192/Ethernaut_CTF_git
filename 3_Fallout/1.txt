@@ -1,0 +1,53 @@
+Q1 I have interface + contract Contract_address  -> then how can i interact with smart contract using javascript
+
+
+
+sol. 1
+
+ABI.js
+            let ABI_ =[    
+                        "function Fal1out() external payable ",
+                        "function owner() external view returns (address)", 
+                    ]
+            module.exports = {ABI_};
+
+1.js
+
+            let {ABI_} = require('./ABI');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
