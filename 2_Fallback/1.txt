@@ -1,0 +1,56 @@
+Q How to send Ether to smart contract who have receive function
+Q Why This Two-Step Process Is Essential:     let txn = await ...    , let receipt = txn.wait();
+q why txn.hash before tnx mined and after txn mined  is same
+
+
+
+
+Sol. 1
+
+    let transaction = await signer.sendTransaction(                      // await guarantees that the transaction has been broadcast to the network and is pending.
+    {
+        to: Contract_address,
+        value: ethers.utils.parseEther('0.000000000000000001'),       // Amount of ETH to send
+        gasLimit: 3000000                                            // Adjust as needed
+    });
+
+
+    let receipt = await i.withdraw();  // check that transcation status change "pending" -> "successfull"
+    /*
+        Block number where the transaction was included
+            -> Gas used
+            -> Event logs emitted by the contract (if any)
+            -> Status (success or failure)
+    */
+
+
+
+
+
+Sol. 2
+
+      This could lead to several issues:
+
+      Double spending  :   If the user clicks "Contribute" again while the first transaction is pending, you might  
+                          unintentionally initiate a second transaction, potentially leading to double spending.
+
+      Premature success:   If the user sees the "Transaction pending" message and navigates away, they might assume 
+                          their contribution succeeded even if it ultimately failed.
+
+
+
+
+
+Sol. 3
+
+    console.log("before",transaction.hash);   
+    let receipt = await i.withdraw();           // check that transcation status change "pending" -> "successfull"  or ensure txn is mined 
+    console.log("after",transaction.hash);
+
+    /*
+    Both console print same txn has but why ? how ?
+        The transaction hash is generated as soon as the transaction is created, even before it's mined. 
+        It acts as a unique identifier and doesn't change regardless of the transaction's status. 
+        That's why both console.log statements print the same hash.
+    */
+
