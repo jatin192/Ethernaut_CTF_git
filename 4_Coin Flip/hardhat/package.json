@@ -1,0 +1,21 @@
+{
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.4",
+    "@nomicfoundation/hardhat-ethers": "^3.0.5",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.4",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "chai": "^4.4.1",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.19.5",
+    "hardhat-gas-reporter": "^1.0.10",
+    "solidity-coverage": "^0.8.6",
+    "typechain": "^8.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1"
+  }
+}

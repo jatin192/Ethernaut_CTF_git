@@ -1,0 +1,6 @@
+Error: cannot estimate gas; transaction may fail or may require manual gas limit ?
+
+
+sol.
+
+await i.func(1,2,{gasLimit: 5000000});
