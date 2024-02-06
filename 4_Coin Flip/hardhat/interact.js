@@ -1,8 +1,8 @@
 let { ethers } = require('ethers');
 
 let Hack = require('./artifacts/contracts/Hack.sol/Hack.json');
-let PRIVATE_KEY = "821bb94aa24de0c3ff6ef682a846f522f36dcba12b8a5de819811bcb592f43ea";
-let network = "https://polygon-mumbai.g.alchemy.com/v2/BigcFnXEKcriMiJUtLFLBAk_TRjyrfic";
+let PRIVATE_KEY = "";
+let network = "";
 let Contract_address = "0xf7725b500B2ec77044986448ABb627224DD30dDb";
 
 
