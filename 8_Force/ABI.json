@@ -1,0 +1,19 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "i",
+				"type": "address"
+			}
+		],
+		"name": "suicide",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	}
+]

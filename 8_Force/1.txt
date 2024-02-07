@@ -1,0 +1,44 @@
+Q1 How to Transfer Eth to smart contract which don’t have any receive()/Fallback() or payable function 
+Q2
+    Transfer Eth to C without changing a value
+
+        contract C 
+        {
+            uint public a;
+            receive() external payable {a= 2;}
+        }
+
+
+
+
+Sol 1.
+
+selfdestruct(owner_address)   // Suicide >> Loss
+
+
+
+Sol 2.
+
+Selfdestruct  -> Transfer all fund from smartcontract D -> contract_C without calling receive funtion
+
+contract C 
+{
+    uint public a;
+    receive() external payable {a= 2;}
+}
+
+contract D
+{
+    c j;
+    constructor(address payable i){j= C(i);}
+    function f1() payable  public 
+    {
+	selfdestruct(payable(j))
+    }
+    receive() external payable( ) { }
+}
+
+
+
+Resource
+https://betterprogramming.pub/solidity-what-happens-with-selfdestruct-f337fcaa58a7
