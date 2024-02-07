@@ -21,21 +21,20 @@ Sol 2.
 
 Selfdestruct  -> Transfer all fund from smartcontract D -> contract_C without calling receive funtion
 
-contract C 
+contract contract_C 
 {
     uint public a;
-    receive() external payable {a= 2;}
+  receive() external payable {a= 2;}
 }
 
 contract D
 {
-    c j;
-    constructor(address payable i){j= C(i);}
+    contract_C j;
+    constructor(address payable i){j= contract_C(i);}
     function f1() payable  public 
     {
-	selfdestruct(payable(j))
+	    selfdestruct(payable(j))
     }
-    receive() external payable( ) { }
 }
 
 
