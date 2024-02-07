@@ -5,3 +5,9 @@ _____________________________________________________________________
 |      Before 0.8.0	            |              No                    |
 |      0.8.0 and later	        |             Yes (for both)         |
 |_______________________________|____________________________________|
+
+
+
+
+Resource
+https://medium.com/loom-network/how-to-secure-your-smart-contracts-6-solidity-vulnerabilities-and-how-to-avoid-them-part-1-c33048d4d17d
