@@ -18,7 +18,7 @@ let a = async()=>
     
     
 
-    let transaction = await signer.sendTransaction(                      // await guarantees that the transaction has been broadcast to the network and is pending.
+    let txn_1 = await signer.sendTransaction(                            // await guarantees that the transaction has been broadcast to the network and is pending.
     {
         to: Contract_address,
         value: ethers.utils.parseEther('0.000000000000000001'),       // Amount of ETH to send
@@ -26,10 +26,7 @@ let a = async()=>
     });
     
 
-
-    console.log("before",transaction.hash);   //***************
-
-    let receipt = await i.withdraw();  // check that transcation status change "pending" -> "successfull"  or ensure txn is mined 
+    let receipt_1 = await txn_1.wait(); // To Avoid Double Speding attack -> check that transcation status change "pending" -> "successfull"  or ensure txn is mined 
     /*
         Block number where the transaction was included
             -> Gas used
@@ -37,7 +34,12 @@ let a = async()=>
             -> Status (success or failure)
     */    
 
-    console.log("after",transaction.hash);   //*******************
+      
+    let txn_2 = await i.withdraw();  
+    
+    console.log("before",txn_2.hash);   //***************  
+    let receipt_2 = await txn_2.wait();
+    console.log("after",txn_2.hash);   //*******************
 
 
     /*

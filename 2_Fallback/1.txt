@@ -1,5 +1,5 @@
 Q How to send Ether to smart contract who have receive function
-Q Why This Two-Step Process Is Essential:     let txn = await ...    , let receipt = txn.wait();
+Q Why This Two-Step Process Is Essential:     let txn = await ...    , let receipt = await txn.wait();
 q why txn.hash before tnx mined and after txn mined  is same
 
 
@@ -7,7 +7,7 @@ q why txn.hash before tnx mined and after txn mined  is same
 
 Sol. 1
 
-    let transaction = await signer.sendTransaction(                      // await guarantees that the transaction has been broadcast to the network and is pending.
+    let txn_1 = await signer.sendTransaction(                      // await guarantees that the transaction has been broadcast to the network and is pending.
     {
         to: Contract_address,
         value: ethers.utils.parseEther('0.000000000000000001'),       // Amount of ETH to send
@@ -15,7 +15,7 @@ Sol. 1
     });
 
 
-    let receipt = await i.withdraw();  // check that transcation status change "pending" -> "successfull"
+    let receipt = await txn_1().wait();  // check that transcation status change "pending" -> "successfull"
     /*
         Block number where the transaction was included
             -> Gas used
