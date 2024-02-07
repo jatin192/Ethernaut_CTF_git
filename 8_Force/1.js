@@ -1,8 +1,8 @@
 let { ethers } = require('ethers');
 
 let ABI = require('./ABI.json');
-let PRIVATE_KEY = "821bb94aa24de0c3ff6ef682a846f522f36dcba12b8a5de819811bcb592f43ea";
-let network = "https://polygon-mumbai.g.alchemy.com/v2/BigcFnXEKcriMiJUtLFLBAk_TRjyrfic";
+let PRIVATE_KEY = "";
+let network = "";
 let Contract_address = "0xb860e46B3d24124Bffb99cB5AE5ccf6FCc9f1252";                      // Hack contract
 
   
