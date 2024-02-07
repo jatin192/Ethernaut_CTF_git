@@ -1,4 +1,9 @@
-Q1 I have interface + contract Contract_address  -> then how can i interact with smart contract using javascript
+Q1  I have interface + contract Contract_address  -> then how can i interact with smart contract using javascript
+
+Q2  Problem :When you have (contract address + source code) But you can’t deploy in Remix so can’t call any function because of 
+    Error: not found openzeppelin-contracts-06/math/SafeMath.sol
+    Or  Version Problem
+
 
 
 
@@ -17,6 +22,9 @@ ABI.js
 
 
 
+
+sol. 2
+        use interface 
 
 
 
