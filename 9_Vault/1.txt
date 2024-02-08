@@ -1,0 +1,104 @@
+1. Is private variable is really private ?🤯
+2. How to read contract storage ? 
+3. Technique to make our private variable is really private😇
+
+
+1. 
+    Marking a variable as private onfrly prevents other contracts from accessing it. 
+    State variables marked as private variables are still publicly accessible.
+
+
+2. 
+    await provider.getStorageAt(Contract_address, slot);  
+
+
+3. 
+        To ensure that data is private, it needs to be encrypted before being put onto the blockchain
+
+        1. Storing Hashes and Off-Chain Encryption: keeping the actual data private off-chain.
+
+        Example:
+                Imagine a voting system on the blockchain. 
+                You want to keep individual votes anonymous while ensuring the integrity of the overall count. 
+                Storing votes directly would expose voters' choices, violating privacy.
+
+        Steps->
+        Off-Chain:
+                Encrypt the private data using a secure algorithm and key.
+                Calculate the hash of the encrypted data (e.g., SHA-256).
+        On-Chain:
+                Store the calculated hash on the blockchain.
+                Keep the encryption key and encrypted data securely off-chain.
+        Verification:
+                Anyone can verify the integrity of the data by recalculating the hash from the provided encrypted data and comparing it to the stored hash on-chain.
+                Only authorized parties holding the encryption key can decrypt and access the actual data.
+
+
+
+        contract DataStore 
+        {
+            mapping(address => bytes32) public dataHashes;
+
+            function storeData(bytes32 dataHash) public 
+            {
+                dataHashes[msg.sender] = dataHash;
+            }
+
+            function verifyData(bytes memory encryptedData) public view returns (bool) 
+            {
+                bytes32 calculatedHash = keccak256(encryptedData);
+                return dataHashes[msg.sender] == calculatedHash;
+            }
+        }
+
+
+
+
+
+
+        2. Utilizing Off-Chain Oracles:
+
+
+        Steps:
+
+        Oracle Setup:
+                    Choose a trusted oracle provider with secure data storage and access control mechanisms.
+                    Store the private data with the oracle.
+        On-Chain Interaction:
+                    The smart contract interacts with the oracle through pre-defined functions or APIs.
+                    The oracle retrieves and verifies the data based on specific conditions set in the smart contract (e.g., user authentication, authorization token).
+                    The oracle returns only the necessary data to the smart contract without exposing the entire dataset.
+        Benefits:
+                    More flexible access control compared to simple hashes.
+                    Reduces on-chain storage costs.
+                    Leverages expertise of trusted oracle providers for secure data management.
+
+
+
+        contract DataConsumer 
+        {
+            address public oracleAddress;
+
+            constructor(address _oracleAddress) 
+            {
+                oracleAddress = _oracleAddress;
+            }
+
+            function accessData(bytes32 accessKey) public 
+            {
+                // Call oracle function to retrieve and verify data based on accessKey
+                bytes memory data = getOracleData(accessKey);
+                // Process and utilize the retrieved data
+            }
+
+            function getOracleData(bytes32 accessKey) internal returns (bytes memory) 
+            {
+                // Replace with actual oracle interaction call
+                return _oracle(accessKey);
+            }
+        }
+
+
+
+Resources
+https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell
