@@ -3,6 +3,7 @@
 3. Technique to make our private variable is really private😇
 
 
+
 1. 
     Marking a variable as private onfrly prevents other contracts from accessing it. 
     State variables marked as private variables are still publicly accessible.
