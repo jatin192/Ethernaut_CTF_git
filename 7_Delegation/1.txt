@@ -1,0 +1,17 @@
+Q1 How to call Fallback function using js?
+Q2 Delegate call ?
+
+
+
+
+sol 1
+
+      let txn_1 = await signer.sendTransaction(                               
+      {
+          to: Contract_address,
+          gasLimit: 5000000,                                                  // Adjust as needed
+          data : signature_,
+         // value: ethers.utils.parseEther('0.000000000000000001'),        // Amount of ETH to send
+      });
+
+sol 2
