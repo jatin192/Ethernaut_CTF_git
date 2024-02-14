@@ -1,0 +1,37 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "bytes8",
+                "name": "_gateKey",
+                "type": "bytes8"
+            }
+        ],
+        "name": "enter",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x3370204e"
+    },
+    {
+        "inputs": [],
+        "name": "entrant",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true,
+        "signature": "0x9db31d77"
+    }
+]
