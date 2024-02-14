@@ -3,7 +3,6 @@ let ABI = require('./ABI.json');
 
 let PRIVATE_KEY = ""
 let network = ""
-
 let Contract_address = "0x57cC574e44240932FD99f8009C4fD825B39A674E";                   // contract Privacy 2nd wala 
 
 let provider = new ethers.providers.JsonRpcProvider(network);                        // read from blockchain
