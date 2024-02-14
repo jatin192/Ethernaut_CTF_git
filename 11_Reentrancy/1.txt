@@ -1,0 +1,21 @@
+Q1  Error : call to Hack.i
+            call to Hack.i errored: Error occured: invalid argument 0: json: cannot unmarshal hex number > 64 bits into Go struct field TransactionArgs.gas of type hexutil.Uint64.
+
+            invalid argument 0: json: cannot unmarshal hex number > 64 bits into Go struct field TransactionArgs.gas of type hexutil.Uint64
+
+
+Q2  So many internal txn -> Txn failed due to less gas fee 
+Q3  get balance of another contract ?
+
+
+
+
+
+
+
+1. Gas Limit (remix) 5M
+
+2. set Gas Limit to max in Metamask (see in images)
+
+3. address(adr).balance;
+
