@@ -1,0 +1,74 @@
+1.  a. Is private variable is really private in smart contracts ?
+    b. Is the first public state variable acqurie whole slot 0 ?    
+                         &
+    c. When you assign bytes32 Globale variable. will it directly store in contract storage  without any additional encoding or formatting?
+
+2.  can reading and writing to such slots without the need for inline assembly? But wait when we call any function that change Global variable that also change the Storage slots  data
+
+
+
+1. 
+        bool a =true;        
+        bool b = true;
+        bytes32 c;
+        bytes32 i = bytes32(0x8f6b597142094e5b463af0876ec9c6a9a686ee1a958ad77aab7fd138ab96bcf7);
+        
+        ->    
+            [0]0x0000000000000000000000000000000000000000000000000000000000000101
+            [1]0x0000000000000000000000000000000000000000000000000000000000000000
+            [2]0x0000000000000000000000000000000000000000000000000000000000000000  
+            [3]0x8f6b597142094e5b463af0876ec9c6a9a686ee1a958ad77aab7fd138ab96bcf7 
+
+    a. NO    
+                            
+    b. NO
+                           
+    c. YES
+       When you assign bytes32(0x8f6b597142094e5b463af0876ec9c6a9a686ee1a958ad77aab7fd138ab96bcf7) to i, 
+       the entire 32-byte value is copied directly into the allocated storage slot for i
+
+
+
+2.
+    Storage slots are often used to avoid storage conflict when dealing with upgradeable contracts.
+    This library helps with reading and writing to such slots without the need for inline assembly.
+
+
+
+
+
+Notes    
+_____________________________________________________________________________
+|   int       or   uint		    ==   	 256 bits 	 ==  		32 bytes     |
+|   int8      or   uint8 		==   	 8 bits      ==  		1 bytes      |
+|   int 256   or   uint256      ==       256 bits 	 ==  		32 bytes     |
+|                                                                            |
+|   bytes1              		==   	 8 bits 	 ==  		1 bytes      |
+|   bytes32              		==   	 256 bits 	 ==  		32 bytes     |
+|                                                                            |        
+|   bool			         	==       8 bits	     ==  	 	1 byte       |
+|                                                                            |
+|   address payable or address  ==       160 bits    ==         20 byte      |
+|____________________________________________________________________________|
+
+
+0x     5035551062b14c8b2982d1bd2ecbf387db35e224e52fd8e9ced6eba9f4ebcd5b
+2   +  64 Hexadecimal 
+
+
+0x     50     35    55  …………………………………………….        5b
+        1   +  1   +  1	+						+  1
+       byte   byte   byte						  byte
+ 
+
+1 byte = 2 Hexadecimal = 8 bits 
+
+
+
+
+
+
+Resources 
+
+->  https://medium.com/@dariusdev/how-to-read-ethereum-contract-storage-44252c8af925
+->  https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/StorageSlot.sol
