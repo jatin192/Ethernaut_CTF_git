@@ -1,10 +1,95 @@
-Q1 How to call Fallback function using js?
-Q2 Delegate call ?
+Q1 How to calculate calldata ?
+Q2 calldata vs function signature ? which one should pass to delegate call ?
+Q3 Error : delgation call not working in remix ?
+Q4 How to call Fallback function using js?
+Q5 Normal external call vs Delegate call ?
 
 
 
 
-sol 1
+
+
+
+1.
+      Method 1
+      using solidity -> 
+                        contract calculate_sig_contract 
+                        {
+                              bytes public i = abi.encodeWithSignature("pwn(string,bool,uint16)", "hello",true,3);   // bytes: 0xcf6a2989000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000668656c6c6f770000000000000000000000000000000000000000000000000000
+
+                                                    or
+                              bytes public i = abi.encodeWithSignature("pwn()");           // 0xdd365b8b
+                        }
+      
+
+
+      Method 2
+      using Remix(local network)
+
+                        -> contract calculate_sig_contract 
+                        {
+                              function pwn(string memory input1,bool input2, uint16 input3) public {/*....*/} 
+                                          // call function -> input -> copy -> Transact 
+                                                            or
+                                          // copy calldata directly(see under the function while calling)
+                        }
+      
+
+
+      Method 3 
+      using js
+                        let ethers = require('ethers');
+                        let abiCoder = new ethers.utils.AbiCoder();
+
+                        function calculate_Func_Signature(string_i,bool_i,uint16_i) 
+                        {
+                        let params =                                         // Define the function parameters
+                        [
+                              { type: 'bool', name: 'i', value: bool_i },
+                              { type: 'uint16', name: 'j', value: uint16_i },
+                              { type: 'string', name: 'k', value: string_i },
+                              // { type: 'bytes8', name: 'm', value: bytes8_i }
+                        ];
+
+                        let encoded_parameters = abiCoder.encode(params.map(param => param.type), params.map(param => param.value));  // Encode the parameters
+                        let functionSignature = ethers.utils.keccak256(ethers.utils.toUtf8Bytes('pwn(string,bool,uint16)'));    // Calculate the Keccak-256 hash of the function signature
+                        let calldata = functionSignature.substring(0, 10) + encoded_parameters.substring(2);                        // Prepend the function signature to the encoded parameters
+
+                        return calldata;
+                        }
+
+                        // Example usage
+                        let bool_i = true;
+                        let uint16_i = 3;
+                        let string_i = "hello";
+                        let bytes8_i = "0x1234567890abcdef";
+
+                        // let calldata = calculate_Func_Signature(string_i,bool_i, uint16_i);
+                        // console.log(`Calldata: ${calldata}`);
+
+                        module.exports = {calculate_Func_Signature};
+      
+
+                  
+
+
+
+
+2.
+      calldata = functionSignature + encoded parameters
+
+      you pass the entire calldata, including the function signature, to the delegate call.
+      Signature here means the first 8 bytes of the sha3 (alias for keccak256)hash of the function prototype
+
+
+
+
+3.
+      edit GasLimit in Metamask
+
+
+
+4.
 
       let txn_1 = await signer.sendTransaction(                               
       {
@@ -14,4 +99,23 @@ sol 1
          // value: ethers.utils.parseEther('0.000000000000000001'),        // Amount of ETH to send
       });
 
-sol 2
+
+5.
+ 	Assume : delegation call  contract B -> contract A 
+
+	****Delegation call use storage of B But functionality of A  
+
+      Assume : Normal external call  contract B -> contract A   (example :  adr.func_1()  )
+
+	****Use storage and functionality of A  
+
+
+
+
+Resources
+
+We can verify the hash using this online keccak 256 hash tool by inputing 
+https://emn178.github.io/online-tools/keccak_256.html 
+
+Also, you can get the contract ABI from etherscan, and paste it into this tool: 
+https://abi.hashex.org/# 

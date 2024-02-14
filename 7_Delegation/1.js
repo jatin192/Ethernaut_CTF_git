@@ -1,10 +1,10 @@
 let { ethers } = require('ethers');
-let sha3 = require('js-sha3');      // Install a Keccak256 implementation, such as js-sha3:
 let ABI = require('./ABI.json');
+let call_data = require('./call_data.js')
 
-let PRIVATE_KEY = "821bb94aa24de0c3ff6ef682a846f522f36dcba12b8a5de819811bcb592f43ea";
-let network = "https://polygon-mumbai.g.alchemy.com/v2/BigcFnXEKcriMiJUtLFLBAk_TRjyrfic";
-let Contract_address = "0xDcFcE597bd8CfFC88128a914F59288a3206eB73A";
+let PRIVATE_KEY = "";
+let network = "";
+let Contract_address = "0x41adE6AA16E9388d10ADa13EA10ac3128a1D0A56";
 
 
 let provider = new ethers.providers.JsonRpcProvider(network);                        // read from blockchain
@@ -13,21 +13,21 @@ let i = new ethers.Contract(Contract_address,ABI,signer);                       
 
 let main = async()=>
 {
-
-    let signature_ = sha3.keccak256("pwn()").slice(0, 8); // Extract first 4 bytes
-    signature_ = "0x" + signature_;
-    console.log("signature_=",signature_);
+    let func_sig = call_data.calldata;
+    console.log("call_data : ",func_sig);
 
     // fallback function
       let txn_1 = await signer.sendTransaction(                               
       {
           to: Contract_address,
           gasLimit: 5000000,                                                  // Adjust as needed
-          data : signature_,
-         // value: ethers.utils.parseEther('0.000000000000000001'),        // Amount of ETH to send
+          data : func_sig,
+         // value: ethers.utils.parseEther('0.000000000000000001'),         // Amount of ETH to send
       });
 
       await txn_1.wait();  
+
+
 }
 
 main().catch((error) => 
@@ -38,3 +38,5 @@ main().catch((error) =>
 
 
 
+// 0xcf6a2989000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000568656c6c6f000000000000000000000000000000000000000000000000000000
+// 0xcf6a2989000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000568656c6c6f000000000000000000000000000000000000000000000000000000
