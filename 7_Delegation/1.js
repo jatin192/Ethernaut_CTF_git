@@ -6,7 +6,6 @@ let PRIVATE_KEY = "";
 let network = "";
 let Contract_address = "0x41adE6AA16E9388d10ADa13EA10ac3128a1D0A56";
 
-
 let provider = new ethers.providers.JsonRpcProvider(network);                        // read from blockchain
 let signer = new ethers.Wallet(PRIVATE_KEY, provider);                              //  write on blockchain
 let i = new ethers.Contract(Contract_address,ABI,signer);                          // contract_instance
