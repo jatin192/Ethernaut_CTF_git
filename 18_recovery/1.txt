@@ -1,0 +1,80 @@
+Q1. I have caller_address + nouce , How to calculate/compute smart contract address ? 
+Q2. "new" keyword in Solidity?
+
+
+
+
+
+1.
+    smart contract address = last 20 bytes(RLP encoded (msg.sender, nonce) )  // not tx.origin
+
+
+        ( 0xd6 ,  0x94 ,    sender_address   ,     0x01 )
+        _____________                           ______   
+        identify that                           nounce
+        this is an
+            address
+
+
+    encoding 0xd6 , 0x94  identifies that this is an address
+
+    RLP = Recursive Length Prefix
+            -> Efficient data serialization: 
+                    -> It encodes data structures (strings, lists, nested items) into a compact and standardized format. 
+                    -> This facilitates efficient communication and synchronization between nodes on the network.
+
+
+
+
+    In js
+    
+    let contract_address =(sender,nonce)=>
+    {
+        let rlp_encoded = rlp.encode([sender, nonce]);
+        let contract_address_long = keccak("keccak256").update(rlp_encoded).digest("hex");
+        return contract_address_long.substring(24,64); //Last 40 Hexadecimal.
+    }
+
+
+    In solidity
+
+    return address(uint160(uint256(keccak256(abi.encodePacked(bytes1(0xd6), bytes1(0x94),i, bytes1(0x80))))));
+
+    return  address(uint160(uint256(keccak256(abi.encodePacked(      bytes1(0xd6), bytes1(0x94)   ,          i        ,   bytes1(0x01))))));  
+                                                                      _________________________      ______________       _____________   
+                                                                       identify that this is an      sender_address         nounce
+                                                                       address
+    
+     //  0x80    ---->      nounce 0
+    //   0x01    ---->      nounce 1
+
+
+
+
+
+
+2. 
+
+new == new instance with uinique & different address
+
+deploy contract A -> call func_1() -> automatically internal call to  deploy instance of contract B 
+
+contract A
+{
+    function func_1() public pure returns(B)
+    {
+        B i = new B(1,2);
+        return i;
+    }
+}
+contract B
+{
+    constructor(uint a,uint b) {}
+}
+
+
+_______________________________________________________________________________________________________________________________________________________
+
+Resources : 
+https://ethereum.stackexchange.com/questions/760/how-is-the-address-of-an-ethereum-contract-computed 
+https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp

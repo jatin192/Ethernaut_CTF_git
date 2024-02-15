@@ -1,0 +1,17 @@
+{
+  "name": "recovery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethereumjs-util": "^7.1.5",
+    "ethers": "^5.7.2",
+    "keccak": "^1.4.0",
+    "rlp": "^2.0.0"
+  }
+}
