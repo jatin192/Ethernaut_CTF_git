@@ -15,6 +15,12 @@
 
 2.
     check 2.sol file in Magic Number
+    
+    steps
+        Runtime code
+        Creation code
+        Factory contract
+
 
 3.
     https://www.evm.codes/playground?fork=shanghai
