@@ -1,0 +1,15 @@
+Notes
+1.  When are import any Library or contract you should know how everything is working in imported contract or Library.  
+    ->  In this example, a developer might scan through the code and think that transfer is the only way to move tokens around,
+        low and behold there are other ways of performing the same operation with a different implementation.
+
+2.  Constructor cannot be defined in interfaces.
+    Functions in interfaces cannot have modifiers.
+
+3.  account1 -> approve account2 -> check allowance  
+    change to account 2-> TransferFrom() 
+    you can't call TransferFrom from account1  
+
+Resources
+https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts
+https://github.com/ethereum -> search erc
