@@ -1,0 +1,91 @@
+1.  How to check  given address is address of smart contract ? or EOA ?  
+2.  Can a contract access the code of another contract? How to get Bytecode of entire smart contract using there address ?
+3.  Assembly ?
+
+
+
+
+1 Ans. 
+
+    2 Methords 
+
+    1.  using address(adr).code     ->     provides the bytecode of smart contract, not the actual source code
+                                    ->     You can verify if a contract exists at a particular address by checking if its bytecode is non-empty. 
+
+    2.  opcode extcodesize(adr)	    ->     size of the code at address adr
+                                    ->     only returns the correct value once the contract is constructed. 
+                                    ->     Returns 0 if it is called from the constructor of a contract.                                  */
+    
+
+    function isContract1(address adr) public view returns (bool)
+    {
+        return (adr.code.length > 0);
+    }                
+
+                          or
+
+    function isContract2(address _addr) public view returns (bool)
+    {
+        uint32 size;
+        assembly 
+        {
+            size := extcodesize(_addr)
+        }
+        return (size > 0);
+    }
+
+
+2 Ans. 
+        No,
+        there's no method to directly access another contract's internal state or storage using address(adr).code in Solidity. 
+        It's fundamentally designed to provide bytecode accessibility, not internal data retrieval.
+        
+        function getCode(address a) public view returns (bytes memory) 
+        { 
+            return a.code; 
+        } 
+
+
+
+3 Ans. 
+
+    The assembly keyword is your gateway to the raw power of the EVM. It allows you to write low-level code directly using the EVM's instruction set, called opcodes.
+
+    Two types of Assembly:
+
+    1. Inline Assembly: This lets you interleave assembly code within your Solidity source code using the assembly { ... } block. You can interact with local Solidity variables and access various EVM capabilities.
+    2. Standalone Assembly: This involves writing a separate assembly file, which can be linked to your Solidity contract. This approach gives you more control and flexibility but is also more complex.
+
+    Benefits of using assembly:
+
+    1. Fine-grained control   : You can perform tasks not directly possible with Solidity, such as manipulating memory at a lower level or interacting with specific EVM opcodes.
+    2. Gas optimization       : In some cases, assembly can be more gas-efficient than Solidity code, leading to lower transaction fees.
+    3. Enhanced functionality : Accessing low-level functionalities like bit manipulation or custom cryptographic operations.
+
+
+    Important considerations:
+
+    1. Complexity         : Assembly adds another layer of complexity to your contract, making it harder to understand and maintain.
+    2. Security risks     : Assembly bypasses many of Solidity's safety features, so you need to be extra careful to avoid errors and vulnerabilities.
+    3. Development effort : Learning assembly and writing secure code requires significant effort and expertise.
+
+
+
+
+Notes 
+        a ^ b == c
+        a ^ c == b
+
+        xor(^)
+
+        1 ^ 1  = 0
+        0 ^ 1  = 1
+
+        ************* byte32 = keccak256(abi.encodePacked(msg.sender));
+        keccak256 always return a 32-byte (64-character hexadecimal) string
+
+
+Resources
+
+https://ethereum.stackexchange.com/questions/15641/how-does-a-contract-find-out-if-another-address-is-a-contract
+https://ethereum.stackexchange.com/questions/1906/can-a-contract-access-the-code-of-another-contract
