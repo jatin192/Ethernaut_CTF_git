@@ -1,0 +1,13 @@
+____________________________________________________________________________________________________________________
+
+This how the Ethernaut deployed the Dex contract & call these func
+
+    Dex deployed, where msg.sender = EOA account
+                        ⬇   
+    approve(address(this))   EOA approve Dex contract to spend & mint token1 +token2  so now Dex have approval so it can call TransferFrom() 
+                        ⬇
+    addLiquidity() -> Dex transfer 10 token from EOA to Dex contract    
+
+Ethernaut Challenge ready         
+____________________________________________________________________________________________________________________
+type(uint).max
