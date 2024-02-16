@@ -1,0 +1,26 @@
+1. abi.encode  or  ABI encoding ??
+2. keccak256 ??
+3. maximum storage slot in smart contract in Solidity
+
+
+1.
+        ABI encoding is a way to represent data types in a standardized way 
+        so that they can be passed between different contracts and applications on the Ethereum blockchain.
+
+
+2.
+        keccak256(...)
+                This applies the Keccak-256 hash function to the encoded value. 
+                it is a cryptographic hash function that produces a unique 256-bit output for any given input
+                Hash functions are used to create unique, tamper-proof fingerprints of data.
+
+
+3.
+        the maximum storage slot possible in a Solidity smart contract is 2^256
+
+        slot_0 
+        slot_1 
+        ......
+        ......
+        ......
+        slot_255  == 256-1
