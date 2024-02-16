@@ -10,7 +10,20 @@
 
 
 2. 
-    await provider.getStorageAt(Contract_address, slot);  
+    In js
+                let Print_1st_5_slots = async()=>
+                {
+                    for (let slot = 0; slot < 3; slot++)
+                    {
+                        console.log(`[${slot}]` + 
+                        await provider.getStorageAt(Contract_address, slot));
+                    }
+                }
+                Print_1st_5_slots();
+
+    In solidity
+                bytes32 public slot_0 = (keccak256(abi.encode(uint256(0))));
+                bytes32 public slot_1 = (keccak256(abi.encode(uint256(1))));  
 
 
 3. 
