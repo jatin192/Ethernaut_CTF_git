@@ -1,0 +1,108 @@
+1. static vs dynamic variable
+
+2.  fun_1(calldata bytes i){}
+    valid input ??
+
+    fun_1(bytes memory i){ }
+    valid input ??
+
+    fun_1(bytes i){ }
+    valid input ??
+
+3   can we pass calldata in fallback since fallback is use for Low level interactions 
+
+4   How to call Fallback fucntion in solidity by other contracts  ?
+    How to call Fallback function in js ?
+
+5.  How msg.sender can change to the address(this)  when we are calling diretly from EOA to contract fucntion ???
+
+
+
+
+
+1.
+    static variable  - Those variable whose size is determined during the compiler time  
+    f(uint256 i)
+
+    dynamic variable - Those variable whose size can't  determined during the compiler time & only know when we give input
+    f(bytes memory i)
+
+
+2.
+    calldata
+    bytes8,16, ,.. any -> it is dynamic data input
+    bytes32 (only) 
+
+
+3.
+    yes
+    you can input calldata in fallback Function  -> calldata in input -> fallback external(){ } -> may call any function 
+    that why fallback is very risky
+
+
+
+4.
+    In solidity
+        ↓
+    
+    contract_A
+    {
+
+    }
+    contract_B
+    {
+
+        function f1(address adr , bytes calldata _calldata) external    // adr = contract_A address not instance
+        {
+            (bool success, ) = adr.call(_calldata);          // calling Fallback function (Low-Level interaction)
+            require(success, "Fail Mc");
+        }
+    }
+
+
+
+
+    In js
+     ↓
+
+    let txn_1 = await signer.sendTransaction(                               
+    {
+        to: Contract_address,
+        gasLimit: 5000000,                                                  // Adjust as needed
+        data : signature_,
+         // value: ethers.utils.parseEther('0.000000000000000001'),        // Amount of ETH to send
+    });
+
+
+
+
+
+5.
+
+    contract Switch 
+    {
+        address public  a;
+        address public  b;
+        function flipSwitch(bytes memory _data) public        // step 2:  where msg.sender = EOA
+        {
+            (bool success, ) = address(this).call(_data);   // step 3 : address(this).call(_data) is executed, a recursive call occurs, essentially transferring control back to Switch
+            require(success, "call failed :(");            //           msg.sender = address(this)
+        }
+
+        function turnSwitchOn() public  
+        {
+            a=msg.sender;
+            b=address(this);
+        }
+        fallback() external  { }                    // step 1 : 0x30c13ade0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000476227e1200000000000000000000000000000000000000000000000000000000
+    }
+    // a = b = contract address 
+
+
+
+        
+
+
+
+Notes
+calldata = function selector + inputs
