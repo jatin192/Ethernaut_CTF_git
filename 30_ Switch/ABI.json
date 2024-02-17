@@ -1,0 +1,62 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "bytes",
+                "name": "_data",
+                "type": "bytes"
+            }
+        ],
+        "name": "flipSwitch",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x30c13ade"
+    },
+    {
+        "inputs": [],
+        "name": "offSelector",
+        "outputs": [
+            {
+                "internalType": "bytes4",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true,
+        "signature": "0x5a2cfa66"
+    },
+    {
+        "inputs": [],
+        "name": "switchOn",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true,
+        "signature": "0xf9f8f895"
+    },
+    {
+        "inputs": [],
+        "name": "turnSwitchOff",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x20606e15"
+    },
+    {
+        "inputs": [],
+        "name": "turnSwitchOn",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x76227e12"
+    }
+]

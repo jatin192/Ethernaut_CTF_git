@@ -1,9 +1,11 @@
 let { ethers } = require('ethers');
 
 let ABI = require('./ABI.json');
-let PRIVATE_KEY = "";
-let network = "";
-let Contract_address = "0x41342f57fe82d955aED23da213Ee4410F04ac722";
+
+let PRIVATE_KEY = ""
+let network = ""
+
+let Contract_address = "0xF65a1A6d8328789b770ee98F61462483C1b21fa8";
 
 
 let provider = new ethers.providers.JsonRpcProvider(network);      // read from blockchain
