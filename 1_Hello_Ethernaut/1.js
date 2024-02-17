@@ -11,14 +11,14 @@ let signer = new ethers.Wallet(PRIVATE_KEY, provider);            //  write on b
 
 let i = new ethers.Contract(Contract_address,ABI,signer);       // contract_instance
 
-let a = async()=>
+let main = async()=>
 {
     let password_ = await i.password();
     console.log("password =",password_);
     await i.authenticate(password_);
     console.log("contract address =",i.address);
 }
-a().catch((error) => 
+main().catch((error) => 
 {
     console.log("Error aagya ===")
     console.error(error);
