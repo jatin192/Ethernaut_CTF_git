@@ -2,7 +2,14 @@
 Q1   contract instances ??  contract_1  i  =     new contract_1(1,2)     vs     contract(msg.sender)      vs      contract(adr)     ?????
 
 
-Q2      contract A
+Q2 
+    Importance of view Keyword
+    f1()    did't return value correctly  (return value only show in remix console)
+    f2()    return 899 correctly 
+
+
+
+        contract A
         {
             uint public  a=889;
         }
@@ -20,8 +27,7 @@ Q2      contract A
         }
 
 
-    f1()    did't return value correctly  (return value only show in remix console)
-    f2()    return 899 correctly 
+
 
 
 
