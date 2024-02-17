@@ -1,0 +1,109 @@
+
+Q1   contract instances ??  contract_1  i  =     new contract_1(1,2)     vs     contract(msg.sender)      vs      contract(adr)     ?????
+
+
+Q2      contract A
+        {
+            uint public  a=889;
+        }
+
+        contract B 
+        {
+            function f(A i) public returns (uint)
+            {
+                return i.a();
+            }
+            function f2(A i) public view returns (uint)
+            {
+                return i.a();
+            }
+        }
+
+
+    f1()    did't return value correctly  (return value only show in remix console)
+    f2()    return 899 correctly 
+
+
+
+
+
+
+
+
+Ans 1
+
+contract A
+{
+    function(B adr) public
+    {
+        adr.load_instance();
+    }
+}
+
+contract B
+{
+    function load_instance() public view returns (address)                 //  This fucntion is only called by other Already deployed B contract
+    {
+        A i = A(msg.sender);                                             // load contract , msg.sender == already deployed contract address(!EOA) 
+        return  address(i);
+    }
+
+        // or
+
+    function load_instance(address adr) public view returns (address)
+    {
+        A i = A(adr);                                                  // load contract , adr ==  deployed contract address 
+        return  address(i);
+    }
+
+}
+
+contract C
+{
+    constructor(uint adr, uint a)
+}
+
+contract D
+{
+    function create_instance() public  returns (address)
+    {
+        C i = new C(1,2);                                        // creating  new instance with new  contract addresses every time
+    } 
+}
+
+
+
+
+
+C i = new C(2,3);                ->           This code snippet creates a new instance of contract C type, assigning it to a variable named i. It then calls the constructor of contract C, passing the values 1 and 2 as arguments.
+
+Requirement
+A must have a constructor that accepts two integer arguments
+When creating contract instances, ensure the constructor arguments match the expected types and meanings within the contract.
+
+
+
+
+
+
+1   A i = A(msg.sender)               ->        create instance by loading contract at msg.sender address ,msg.sender should be a contract address
+        or
+2   A i = A(adr) 
+
+Requirement
+costructor have no impact
+adr, msg.sender must be a contract address(!EOA)
+you cant directly instract  in 1 becaue in direct interaction msg.sender == EOA    -> 1stly deploy A i which func external call to contract A 's function() {A i = A(msg.sender) }
+
+
+
+
+
+
+Ans 2
+
+        f1()     did't return value correctly  (return value only show in remix console)
+        f2()     return 899 correctly 
+
+        Because of View Keyword
+
