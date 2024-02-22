@@ -53,4 +53,5 @@ Inside the constructor:
 
 Note 
 
-Try to avoid performing action inside constructor if you interfact with instances/external-internal call  -> use function instead
+    1. Try to avoid performing action inside constructor if you interfact with instances/external-internal call  -> use function instead
+    2. constructor code is executed sequentially from top to bottom -> there is no chance for other code to be interleaved between the calls
