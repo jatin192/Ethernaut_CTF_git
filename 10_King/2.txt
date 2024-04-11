@@ -1,10 +1,9 @@
-Q1 transfer  vs  call   ? which is better?
+Q1 transfer  vs  call   ? disadvantage?
 
 Q2  after calling selfdestruct() still
     a.  is it possible to sc to receive money?
     b.  to call any function ?
     c.  contract Storage before vs after ? same or different?
-
 
 
 
