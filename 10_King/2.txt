@@ -1,0 +1,51 @@
+Q1 transfer  vs  call   ? which is better?
+
+Q2  after calling selfdestruct() still
+    a.  is it possible to sc to receive money?
+    b.  to call any function ?
+    c.  contract Storage before vs after ? same or different?
+
+
+
+
+
+
+1.
+    a.  Confusion ???
+    b.  No 
+    c. 
+        Confusion ??
+            Before destruct(): The contract's storage holds its current data, like the balance you mentioned.
+            After destruct(): The storage becomes undefined or inaccessible. The contract's balance and any other stored data are essentially erased.
+
+
+2.
+
+    transfer        
+            - It limits the amount of gas available to the recipient contract to 21,000 gas.
+            - This is often not sufficient if the receiving contract performs complex operations or makes external calls during the fallback function.
+            - The idea behind limiting the gas is to prevent reentrancy attacks, where an attacker could repeatedly call back into the sender contract during the transfer.
+
+
+                                    vs  
+
+
+    call{value: msg.value, gas: 50000, from: msg.sender}(data)
+
+            - The call function provides more control over the gas limit and allows the caller to specify the amount of gas to be sent along with the function call.
+            - It returns a tuple with a boolean indicating success and the returned data.
+            - Using call allows the sender to provide more gas to the recipient contract, making it more suitable for cases where the recipient contract may require additional gas to execute its code.
+            - May cause Re-entrancy Attack
+
+
+
+
+
+
+
+Notes:   
+
+1.         contract A                  ->        contract B (have receive function)
+   (use .call insted of transfer)
+
+2. selfdestruct function  ->  Transfer all the fund from one smartcontract to another smartcontract or EOA without calling refceive function
