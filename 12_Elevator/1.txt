@@ -1,8 +1,9 @@
 
 Q1   contract instances ??  contract_1  i  =     new contract_1(1,2)     vs     contract(msg.sender)      vs      contract(adr)     ?????
 
+Q2   In every new instance. Is address changes every time.
 
-Q2 
+Q3 
     Importance of view Keyword
     f1()    did't return value correctly  (return value only show in remix console)
     f2()    return 899 correctly 
@@ -27,11 +28,7 @@ Q2
         }
 
 
-
-
-
-
-
+Q4 can we use dynamic arrays inside function ? 
 
 
 
@@ -103,13 +100,45 @@ you cant directly instract  in 1 becaue in direct interaction msg.sender == EOA 
 
 
 
+Ans 2   : Yes  check using address(i)
 
 
-
-Ans 2
+Ans 3
 
         f1()     did't return value correctly  (return value only show in remix console)
         f2()     return 899 correctly 
 
         Because of View Keyword
 
+
+
+
+Ans 4
+        The push() function is not available for dynamic arrays in memory
+
+        function functionName() public view returns (uint[] memory) 
+        {
+	        uint[] memory dynamicArray = new uint[](9);  // Initialize with size = 9
+	        // dynamicArray.push(2);   ------> Error
+            dynamicArray[8]=2;
+		}
+
+
+
+
+
+
+
+
+Additional Information
+
+Always use solidity^<0.8.20
+
+Potential Issue:            PUSH0 is a relatively new opcode.
+                            Solidity versions 0.8.20 and above use the PUSH0 opcode (0x5f) which is only supported by Ethereum mainnet currently. 
+                            Deploying to other chains with an older EVM might cause "invalid opcode"  error.
+
+Functionality:              PUSH0 acts as a shortcut for placing the number 0 on the stack during contract execution.
+
+Benefits:                   Reduced Code Size:    Compared to previous methods using multiple opcodes, PUSH0 reduces the bytecode size of your smart contract, making it more efficient.
+                            Less DUP Usage   :    It eliminates the need for workarounds like using DUP instructions for duplicating zeros.
