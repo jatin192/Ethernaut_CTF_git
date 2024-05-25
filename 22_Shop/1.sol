@@ -17,6 +17,7 @@ contract Shop {
   }
 }
 
+
 contract Buyer 
 {
   Shop adr;
