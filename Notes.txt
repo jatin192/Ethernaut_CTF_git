@@ -2,7 +2,7 @@
 ________________________________________________________1 Hello Ethernaut___________________________________________________________________________
 Q1. providers   vs   signer
 Q2. error handling
-
+Q3 
 
 sol 1.
 
@@ -37,6 +37,15 @@ a().catch((error) =>
     console.log("Error aagya ===")
     console.error(error);
 });
+
+
+sol 3.
+
+function f1(address a , string memory b , uint c) public pure returns (bytes32) 
+{
+	bytes32 hash = keccak256(abi.encodePacked(a,b,c));
+        return hash;
+}
 
 ________________________________________________________2 Fallback__________________________________________________________________________________________
 
