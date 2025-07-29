@@ -86,7 +86,6 @@ Sol. 2
 
 
 
-
 Sol. 3
 
     console.log("before",transaction.hash);   
