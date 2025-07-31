@@ -110,7 +110,6 @@ Q2  Problem :When you have (contract address + source code) But you can’t depl
 
 
 
-
 sol. 1
 
 ABI.js
