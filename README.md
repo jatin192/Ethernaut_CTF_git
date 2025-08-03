@@ -279,7 +279,6 @@ https://emn178.github.io/online-tools/keccak_256.html
 Also, you can get the contract ABI from etherscan, and paste it into this tool: 
 https://abi.hashex.org/# 
 
-
 ________________________________________________________8 Force__________________________________________________________________________________________________
 
 Q1 How to Transfer Eth to smart contract which don’t have any receive()/Fallback() or payable function 
