@@ -5,7 +5,7 @@
 
 
 1. 
-    Marking a variable as private onfrly prevents other contracts from accessing it. 
+    Marking a variable as private only prevents other contracts from accessing it. 
     State variables marked as private variables are still publicly accessible.
 
 

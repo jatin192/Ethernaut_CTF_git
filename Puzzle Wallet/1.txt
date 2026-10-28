@@ -1,0 +1,16 @@
+mload  ?
+abi.encodeWithSelector  or calldata any relation ??
+upgrade proxy contract patterns ?
+
+
+
+
+
+
+
+
+Resources
+https://blog.openzeppelin.com/proxy-patterns
+https://blog.trailofbits.com/2018/09/05/contract-upgrade-anti-patterns/
+
+https://programtheblockchain.com/posts/2018/03/09/understanding-ethereum-smart-contract-storage/

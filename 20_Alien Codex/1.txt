@@ -1,6 +1,7 @@
 1. abi.encode  or  ABI encoding ??
 2. keccak256 ??
 3. maximum storage slot in smart contract in Solidity
+4. 0.5.0 + bytes[] array  ???????
 
 
 1.
@@ -23,4 +24,10 @@
         ......
         ......
         ......
-        slot_255  == 256-1
+        slot_2^255  == 2^256-1
+
+
+4.
+        underflow -> access all contract storage slots
+        it exploits the arithmetic underflow of array length, by expanding the array's bounds to the entire storage area of 2^256. The user is then able to modify all contract storage.
+                

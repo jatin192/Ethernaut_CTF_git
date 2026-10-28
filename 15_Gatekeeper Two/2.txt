@@ -23,11 +23,7 @@
         }   
 
 
-    modifier onlyEoa() 
-    {
-        require(tx.origin == msg.sender, "Not EOA");
-        _;
-    }  
+
 
                           or
 

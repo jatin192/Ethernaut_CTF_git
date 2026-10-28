@@ -1,0 +1,5 @@
+.env
+.env.*
+*.env
+senstive infor.txt
+sensitive infor.txt

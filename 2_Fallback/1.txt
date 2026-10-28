@@ -1,4 +1,4 @@
-Q How to send Ether to smart contract who have receive function
+Q How to send Ether to smart contract who has receive function
 Q Why This Two-Step Process Is Essential:     let txn = await ...    , let receipt = await txn.wait();
 q why txn.hash before tnx mined and after txn mined  is same
 

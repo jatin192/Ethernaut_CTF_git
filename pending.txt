@@ -1,0 +1,35 @@
+4 -> implement chain link  -> also add in commmit
+
+git command -> search if any private key is by mistake not pushed -> search -> social network
+
+
+
+
+
+
+9. read sol. on ethernaut then read
+https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell          + on youtube  + oracle technique
+
+
+
+
+
+
+recovery 
+-> why we use nounce 1 not 0 ????
+
+
+
+
+
+// password_bytes32 = ethers.utils.concat([password_bytes20, "0".repeat(24)]); // Pad with 24 zeros
+    let password_bytes20 = password_bytes32.slice(26,66);
+
+
+
+
+
+King
+
+// Confusion ??????????????????????????????????????????????
+// After selfdestruct this contract still able to receive ether But How & why ???????????????????

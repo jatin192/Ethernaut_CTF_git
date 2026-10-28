@@ -50,12 +50,12 @@ Answer 1
         
         after (4 bytes + 32 bytes + 32 bytes  = 68)      ->  added 20606e15   
         Always Assume position/location like 68 in bytes  not in Hexadecimal wise 
-                           
+
  */  
 
 
 
-// Answer 2
+// Answer 2 (understanig purpose)
 
 contract Switch 
 {

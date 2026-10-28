@@ -7,7 +7,7 @@ pragma solidity ^0.8.0;
   bytes32[] public codex;     //   slot 1
 
   slot(1)     = uint256(keccak256(abi.encode(uint256(1))));
-  slo(1+1)    = slot 2
+  slot(1+1)   = slot 2
   slot(1+2)   = slot 3
   slot(1+3)   = slot 4
   -------

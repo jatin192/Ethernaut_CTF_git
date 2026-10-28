@@ -1,0 +1,12 @@
+can we use try{} catch(){}
+
+
+
+Notes
+The syntax of errors is similar to that of events. 
+They have to be used together with the revert statement which causes all changes in the current call to be reverted and passes the error data back to the caller. 
+Using errors together with require is not yet supported 
+
+Resources
+https://soliditylang.org/blog/2021/04/21/custom-errors/
+
