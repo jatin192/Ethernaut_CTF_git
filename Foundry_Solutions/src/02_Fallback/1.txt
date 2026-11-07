@@ -1,0 +1,3 @@
+$ cs "contribute() payable"             123 wei
+$ send                                  100wei
+$ cs "withdraw()"                         

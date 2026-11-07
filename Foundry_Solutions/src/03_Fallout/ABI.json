@@ -1,0 +1,78 @@
+[
+    {
+        "type": "function",
+        "name": "Fal1out",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable",
+        "payable": true,
+        "signature": "0x6fab5ddf"
+    },
+    {
+        "type": "function",
+        "name": "allocate",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "payable",
+        "payable": true,
+        "signature": "0xabaa9916"
+    },
+    {
+        "type": "function",
+        "name": "allocatorBalance",
+        "inputs": [
+            {
+                "name": "allocator",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "constant": true,
+        "signature": "0xffd40b56"
+    },
+    {
+        "type": "function",
+        "name": "collectAllocations",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "signature": "0x8aa96f38"
+    },
+    {
+        "type": "function",
+        "name": "owner",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address payable"
+            }
+        ],
+        "stateMutability": "view",
+        "constant": true,
+        "signature": "0x8da5cb5b"
+    },
+    {
+        "type": "function",
+        "name": "sendAllocation",
+        "inputs": [
+            {
+                "name": "allocator",
+                "type": "address",
+                "internalType": "address payable"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "signature": "0xa2dea26f"
+    }
+]

@@ -1,0 +1,169 @@
+[
+    {
+        "type": "constructor",
+        "inputs": [
+            {
+                "name": "_password",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "authenticate",
+        "inputs": [
+            {
+                "name": "passkey",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "signature": "0xaa613b29"
+    },
+    {
+        "type": "function",
+        "name": "getCleared",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "constant": true,
+        "signature": "0x3c848d78"
+    },
+    {
+        "type": "function",
+        "name": "info",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "pure",
+        "constant": true,
+        "signature": "0x370158ea"
+    },
+    {
+        "type": "function",
+        "name": "info1",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "pure",
+        "constant": true,
+        "signature": "0xd4c3cf44"
+    },
+    {
+        "type": "function",
+        "name": "info2",
+        "inputs": [
+            {
+                "name": "param",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "pure",
+        "constant": true,
+        "signature": "0x2133b6a9"
+    },
+    {
+        "type": "function",
+        "name": "info42",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "pure",
+        "constant": true,
+        "signature": "0x2cbd79a5"
+    },
+    {
+        "type": "function",
+        "name": "infoNum",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint8",
+                "internalType": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "constant": true,
+        "signature": "0xc253aebe"
+    },
+    {
+        "type": "function",
+        "name": "method7123949",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "pure",
+        "constant": true,
+        "signature": "0xf0bc7081"
+    },
+    {
+        "type": "function",
+        "name": "password",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "constant": true,
+        "signature": "0x224b610b"
+    },
+    {
+        "type": "function",
+        "name": "theMethodName",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "constant": true,
+        "signature": "0xf157a1e3"
+    }
+]
+

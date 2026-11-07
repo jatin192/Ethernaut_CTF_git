@@ -1,0 +1,6 @@
+Error: the previous broadcast `/home/azad/Desktop/CTFs/Ethernaut/Ethernaut_CTF_git/Foundry_Solutions/broadcast/Fallback.s.sol/11155111/run-latest.json` has unfinished operations; finish it with `--resume`, or pass `--start-fresh` to archive it and broadcast anew
+azad@azad:~/Desktop/CTFs/Ethernaut/Ethernaut_CTF_git/Foundry_Solutions$ 
+
+
+
+Your Fallback script emits 3 txs in one startBroadcast. If tx 3 often never broadcasts (e.g. gapped-nonce), the file stays unfinished every time. That’s why it keeps coming back: the same structural problem repeats, not “because of the new instance.”Error: the previous broadcast `/home/azad/Desktop/CTFs/Ethernaut/Ethernaut_CTF_git/Foundry_Solutions/broadcast/Fallback.s.sol/11155111/run-latest.json` has unfinished operations; finish it with `--resume`, or pass `--start-fresh` to archive it and broadcast anew
