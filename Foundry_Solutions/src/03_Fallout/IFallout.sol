@@ -9,3 +9,8 @@ interface IFallout {
     function owner() external view returns (address payable);
     function sendAllocation(address payable allocator) external;
 }
+
+
+
+
+// cast interface src/ABI.json --name IContract_1 > src/IContract_1.sol

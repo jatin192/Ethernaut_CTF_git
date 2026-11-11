@@ -1,0 +1,49 @@
+{
+  "transactions": [
+    {
+      "hash": "0x8e16d13ff2280d08688a81ed2b025ab3af259b8a8ba229ef0a5f82fdd8328929",
+      "transactionType": "CALL",
+      "contractName": "Delegation",
+      "contractAddress": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+      "function": null,
+      "functionAbi": null,
+      "arguments": null,
+      "transaction": {
+        "from": "0x88dfbb3e5ac0d3988c6947b13a71aef44ff76b6c",
+        "to": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+        "gas": "0xb0fe",
+        "value": "0x0",
+        "input": "0xdd365b8b",
+        "nonce": "0x171",
+        "chainId": "0xaa36a7"
+      },
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "type": "0x2",
+      "status": "0x1",
+      "cumulativeGasUsed": "0x8024",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "transactionHash": "0x8e16d13ff2280d08688a81ed2b025ab3af259b8a8ba229ef0a5f82fdd8328929",
+      "transactionIndex": "0x0",
+      "blockHash": "0x356ddb9d1df0aa93415b26c0f8e62dd43f9d80b82547e85925cfdc0ee1dfbd91",
+      "blockNumber": "0xb8cffc",
+      "gasUsed": "0x8024",
+      "effectiveGasPrice": "0x7addf",
+      "from": "0x88dfbb3e5ac0d3988c6947b13a71aef44ff76b6c",
+      "to": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+      "contractAddress": null
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {},
+  "timestamp": 1794401656162,
+  "chain": 11155111,
+  "commit": "3619abf",
+  "recovery_generation": "0x6438d517a72e01bf5768ba7477a26f87908679e1e675ff76e804a7f90b2498ff"
+}

@@ -1,6 +1,108 @@
+Error: Failed to send transaction after 4 attempts Err(server returned an error response: error code -32000: in-flight transaction limit reached for delegated accounts)
+
+
+----->  --resume || --resume  --slow
+
+____________________________________________________________________________________________________
+
+Failed to verify contract: Checking verification result failed; Verification is still pending...
+
+----->   deploy --resume
+
+
+
+___________________________________________________________________________________________________
+Error: Found incompatible versions:
+script/06_Token/TOken.s.sol ^0.8.13 imports:
+    lib/forge-std/src/Script.sol >=0.8.13, <0.9.0
+    src/06_Token/Token.sol ^0.6.0
+
+
+
+
+----->   Use an interface compiled with 0.8
+
+
+
+The EVM does not care what compiler your script or Interface used. 
+It only runs the code at the instance address  
+and the bytecode already at that address
+
+
+Token.sol(Deployed) on Sepolia               0.6.0 (Already done by Ethernaut. Underflow lives on chain)
+Token.s.sol   or   IToken.sol                0.8.x (Only builds calldata (transfer(address,uint256)) and sends a tx.)
+
+
+
+______________________________________________________________________________________________________________________________________
+
+
+Compiled contract runtime bytecode
+does NOT match the on-chain runtime bytecode.
+
+
+
+if a contract is created and selfdestruct() is called in the same transaction:
+- ETH is transferred to the beneficiary.
+- Contract storage is deleted.
+- Contract bytecode is deleted.
+Therefore, after deployment, your Hack contract has no runtime bytecode.
+
+Etherscan tries to compare:
+- Compiled Hack runtime bytecode     !=      On-chain Hack runtime bytecode.
+But the latter is empty
+
+___________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pending
+
+8 start se hack + contract .sol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Error: the previous broadcast `/home/azad/Desktop/CTFs/Ethernaut/Ethernaut_CTF_git/Foundry_Solutions/broadcast/Fallback.s.sol/11155111/run-latest.json` has unfinished operations; finish it with `--resume`, or pass `--start-fresh` to archive it and broadcast anew
-azad@azad:~/Desktop/CTFs/Ethernaut/Ethernaut_CTF_git/Foundry_Solutions$ 
+
 
 
 
 Your Fallback script emits 3 txs in one startBroadcast. If tx 3 often never broadcasts (e.g. gapped-nonce), the file stays unfinished every time. That’s why it keeps coming back: the same structural problem repeats, not “because of the new instance.”Error: the previous broadcast `/home/azad/Desktop/CTFs/Ethernaut/Ethernaut_CTF_git/Foundry_Solutions/broadcast/Fallback.s.sol/11155111/run-latest.json` has unfinished operations; finish it with `--resume`, or pass `--start-fresh` to archive it and broadcast anew
+
+
+
+
+
+

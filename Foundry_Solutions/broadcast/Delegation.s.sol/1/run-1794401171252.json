@@ -1,0 +1,49 @@
+{
+  "transactions": [
+    {
+      "hash": "0x4079dc297fc88e8157f53fcaf98af1a1a843886e09d73686820c9c0bcffd804c",
+      "transactionType": "CALL",
+      "contractName": null,
+      "contractAddress": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+      "function": "pwn()",
+      "functionAbi": "function pwn()",
+      "arguments": [],
+      "transaction": {
+        "from": "0x88dfbb3e5ac0d3988c6947b13a71aef44ff76b6c",
+        "to": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+        "gas": "0x722a",
+        "value": "0x0",
+        "input": "0xdd365b8b",
+        "nonce": "0x6",
+        "chainId": "0x1"
+      },
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "type": "0x2",
+      "status": "0x1",
+      "cumulativeGasUsed": "0x52a8",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "transactionHash": "0x4079dc297fc88e8157f53fcaf98af1a1a843886e09d73686820c9c0bcffd804c",
+      "transactionIndex": "0x0",
+      "blockHash": "0xf460eac80609268ff7ca885a3ca7ababe21c2bac33c5fe3be207012af34e0976",
+      "blockNumber": "0x192b4d3",
+      "gasUsed": "0x52a8",
+      "effectiveGasPrice": "0x48c19f7",
+      "from": "0x88dfbb3e5ac0d3988c6947b13a71aef44ff76b6c",
+      "to": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+      "contractAddress": null
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {},
+  "timestamp": 1794401179403,
+  "chain": 1,
+  "commit": "3619abf",
+  "recovery_generation": "0x6ecc482d6f35e2b38fc36cdfecac61969889fb229bd1a77d19720a3203ed51c8"
+}

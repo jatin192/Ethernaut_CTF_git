@@ -1,0 +1,49 @@
+{
+  "transactions": [
+    {
+      "hash": "0x3a2305d8156be612bec14bd1fb023f5e0db1bdbae9f37618cf99dad410a238ca",
+      "transactionType": "CALL",
+      "contractName": "Delegation",
+      "contractAddress": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+      "function": null,
+      "functionAbi": null,
+      "arguments": null,
+      "transaction": {
+        "from": "0x88dfbb3e5ac0d3988c6947b13a71aef44ff76b6c",
+        "to": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+        "gas": "0xb0fe",
+        "value": "0x0",
+        "input": "0xdd365b8b",
+        "nonce": "0x171",
+        "chainId": "0xaa36a7"
+      },
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "type": "0x2",
+      "status": "0x1",
+      "cumulativeGasUsed": "0x8024",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "transactionHash": "0x3a2305d8156be612bec14bd1fb023f5e0db1bdbae9f37618cf99dad410a238ca",
+      "transactionIndex": "0x0",
+      "blockHash": "0xa47820ae23c2cccac460035e55206bb981b3b12e0e6a0ec727ed39a1bf1d6720",
+      "blockNumber": "0xb8cfa4",
+      "gasUsed": "0x8024",
+      "effectiveGasPrice": "0x50",
+      "from": "0x88dfbb3e5ac0d3988c6947b13a71aef44ff76b6c",
+      "to": "0x006b08570f288df0810c48e0425d2a2e76cb745e",
+      "contractAddress": null
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {},
+  "timestamp": 1794400995667,
+  "chain": 11155111,
+  "commit": "3619abf",
+  "recovery_generation": "0xb60163a975e59359a9c58690a3931000b5a57cea7964f2890200c8bdb4cc2d19"
+}
